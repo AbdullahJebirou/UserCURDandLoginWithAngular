@@ -1,0 +1,45 @@
+<div class="container vh-100">
+
+    <app-alert [message]="alert.message" [type]="alert.type"></app-alert>
+
+    <div class="row justify-content-center h-100 mx-5">
+        <div class="card my-auto shadow p-0 mw-50">
+
+            <div class="card-body px-5">
+
+                <div class="text-center">
+                    <h2>Welcome</h2>
+                </div>
+
+                <p style="color: lightslategray; text-align: center;">
+                    Please enter your login details
+                </p>
+
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group my-4">
+                        <input type="email" id="email" placeholder="Email" class="form-control" formControlName="email" />
+                        <span *ngIf="loginForm.get('email')?.errors?.['required']
+                         && loginForm.get('email')?.touched " class="px-2">Email this required</span>
+                         <span *ngIf="loginForm.get('email')?.errors?.['email']
+                         && loginForm.get('email')?.touched " class="px-2">is not Email</span>
+                    </div>
+
+                    <div class="form-group my-4">
+                        <input type="password" placeholder="Password" class="form-control" formControlName="password" />
+                        <span *ngIf="loginForm.get('password')?.errors?.['required'] && 
+                        loginForm.get('password')?.touched " class="px-2">Password this required</span>
+                    </div>
+
+                    <input [disabled]="this.loginForm.invalid" type="submit" class="btn btn-primary w-100 " value="Login">
+                </form>
+
+            </div>
+
+            <div class="card-footer text-right">
+                <small><a class="link" (click)="ForgotPassword()">Forgot Password</a></small>
+            </div>
+
+        </div>
+    </div>
+    
+</div>

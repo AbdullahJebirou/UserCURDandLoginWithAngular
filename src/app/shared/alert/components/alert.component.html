@@ -1,0 +1,6 @@
+<div *ngIf="type==='Success'" class="alert alert-primary">
+    <span class="closebtn " (click)="removeAlert()">&times;</span> succeeded : {{message}}
+</div>
+<div *ngIf="type === 'warning'" class="alert alert-warning">
+    <span class="closebtn " (click)="removeAlert()">&times;</span>warning : {{message}}
+</div>
