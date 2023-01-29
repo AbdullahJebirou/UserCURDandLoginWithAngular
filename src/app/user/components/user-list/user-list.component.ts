@@ -42,7 +42,7 @@ export class UserListComponent {
   OnDelete(userId:number){
   this.subs.sink=this.userService.deleteUser(userId).subscribe({
     next:result => {
-      console.log(result);
+      this.Users.data.splice(this.Users.data.findIndex(u=>u.id==userId),1);
       this.alert = new alert(AlertType.Success,`The user has been deleted successfully`)
     },
     error:err=> {
