@@ -17,4 +17,17 @@ table {
     border-radius: 50%;
 }
 
+.background-table{
+    background-color: #f8f9fa;
+}
+
+.input-filter{
+    border: none;
+    outline:none;
+    border-bottom: 1px #aaa solid;
+    background-color:#f8f9fa ;
+    font-size: 22px;
+    width:90%;
+    padding: 5px;
+}
 

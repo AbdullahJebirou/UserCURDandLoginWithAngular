@@ -21,8 +21,10 @@
 
     <div class="card-bady">
             <div class="card-bady">
-                <div class="table-responsive">
-                    <table class="table  table-light table-hover" *ngIf="Users?.data as User">
+                <div class="table-responsive background-table">
+                    <table class="table  table-light table-hover" *ngIf="UsersFilter as User">
+
+                        <input type="text" class="input-filter" placeholder="Search" [(ngModel)]="listFilter" (keyup)="doFilter()">               
                         
                         <thead>
                             <tr>
@@ -34,10 +36,11 @@
                         </thead>
 
                         <tbody>
+                       
                             <tr *ngFor="let user of User">
                                 <td class="link" [routerLink]="['./',user.id]" >{{user.first_name}} {{user.last_name}}</td>
                                 <td>{{user.email}}</td>
-                                <td> <img [src]="user.avatar" [alt]="user.first_name" [style.width.px]="50"> </td>
+                                <td> <img [src]="user.avatar" [alt]="user.first_name"[style.height.px]="50"></td>
                                 <td>             
                                  <img class="m-1 link" src="../../../../assets/user-xmark-solid.svg" (click)="OnDelete(user.id)" [style.width.px]="30" alt="delete">   
                                  <img class="m-1 link" src="../../../../assets/user-pen-solid.svg" [routerLink]="['./Update',user.id]" [style.width.px]="30" alt="Update">   
@@ -52,7 +55,10 @@
     </div>
 
     <div class=" width w-100">
-        <app-pagination *ngIf="Users?.total_pages as total" class="d-flex justify-content-center" [totalPages]="total" (changePage)="onChangePage($event)"></app-pagination>
+        <app-pagination *ngIf="Users?.total_pages as total" 
+        class="d-flex justify-content-center" 
+        [totalPages]="total" (changePage)="onChangePage($event)">
+        </app-pagination>
     </div>
 
 </div>

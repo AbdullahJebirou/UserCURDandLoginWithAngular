@@ -7,7 +7,6 @@ import { IUser } from '../user/models/IUser';
 import { IUserForCreateRequest } from '../user/models/IUserForCreateRequest';
 import { IUserForCreateResponse } from '../user/models/IUserForCreateResponse';
 import { IUserForUpdateRequest } from '../user/models/IUserForUpdateRequest';
-import { IUserForUpdateResponse } from '../user/models/IUserForUpdateResponse';
 import { IUserWithPage } from '../user/models/IUserWithPage';
 import { IUserWithSupport } from '../user/models/IUserWithSupport';
 
@@ -66,9 +65,8 @@ export class UserService {
   
 
   deleteUser(userId:Number):Observable<any>{
-    return this.http.delete(this.userUrl).pipe(
-      tap(data => console.log(JSON.stringify(data))),
-      catchError(this.handleError)) 
+    return this.http.delete(this.usersUrl+userId).pipe(
+    catchError(this.handleError)) 
   }
 
 

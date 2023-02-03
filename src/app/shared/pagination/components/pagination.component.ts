@@ -9,19 +9,21 @@ import { paginate } from '../models/paginate';
 export class PaginationComponent implements OnInit {
  
     @Output() changePage = new EventEmitter<number>();
-    
+
     @Input() initialPage = 1; //the virtual value
     @Input() totalPages= 10; //the virtual value
 
     pager:any;
 
-    //The constructor will generate the pagination
-    //(change the value of the pages array) 
-    //according to the totalPages of pages and 
-    //will start the pagination as per initialPage
+
     
     ngOnInit() {  
-     this.pager= new paginate(this.totalPages ,this.initialPage);     
+      /*The constructor will generate the pagination
+      (change the value of the pages array) 
+      according to the totalPages of pages and 
+      will start the pagination as per initialPage*/
+      
+      this.pager= new paginate(this.totalPages ,this.initialPage);     
     }
 
     setPage(page: number) {
