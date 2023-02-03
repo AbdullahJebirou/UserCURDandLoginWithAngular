@@ -5,7 +5,7 @@ import { alert } from 'src/app/shared/alert/models/alert';
 import { AlertType } from 'src/app/shared/alert/models/AlertType';
 import { UserService } from 'src/app/services/user.service';
 import { IUserForCreateRequest } from '../../models/IUserForCreateRequest';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-update',
@@ -22,7 +22,8 @@ export class UserUpdateComponent {
 
   constructor(private service:UserService,
               private fb:FormBuilder ,
-              private route:ActivatedRoute ) {}
+              private route:ActivatedRoute ,
+              private router: Router  ) {}
 
   ngOnInit(): void {
 
@@ -55,7 +56,8 @@ export class UserUpdateComponent {
       this.subs.sink=this.service.updateUser(user).subscribe({
         next:result => {
           console.log(result);
-          this.alert = new alert(AlertType.Success,`The user ${result.name} has been successfully updated on 1/1/200 ${result.updatedAt.toString()}`)
+          this.alert = new alert(AlertType.Success,`The user ${result.name} has been successfully updated on ${result.updatedAt.toString()}`)
+          this.router.navigate(['./User']);
         },
         error:err=> {
           this.alert = new alert(AlertType.Warning,'an error occurred')
