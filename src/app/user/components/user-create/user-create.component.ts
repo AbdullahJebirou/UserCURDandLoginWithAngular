@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user.service';
 import { alert } from 'src/app/shared/alert/models/alert';
 import { AlertType } from 'src/app/shared/alert/models/AlertType';
 import { SubSink } from 'subsink';
+import { IDeactivateComponent } from '../../models/IDeactivateComponent';
 import { IUserForCreateRequest } from '../../models/IUserForCreateRequest';
 
 @Component({
@@ -11,8 +12,9 @@ import { IUserForCreateRequest } from '../../models/IUserForCreateRequest';
   templateUrl: './user-create.component.html',
   styleUrls: ['./user-create.component.css']
 })
-export class UserCreateComponent implements OnInit {
+export class UserCreateComponent implements OnInit , IDeactivateComponent{
   
+  isUserEdited = false;
   createUserForm!:FormGroup;
   alert = new alert(AlertType.none,''); //This data object is for alert.component
   private subs = new SubSink();
@@ -39,6 +41,14 @@ export class UserCreateComponent implements OnInit {
           this.alert = new alert(AlertType.Warning,err)
         }
       });
+      this.createUserForm.reset()
+    }
+
+    canExit(){
+      if(this.createUserForm.get('name')?.dirty || this.createUserForm.get('job')?.dirty ){
+        return false;
+      }
+      return true;
     }
 
     ngOnDestroy() {
