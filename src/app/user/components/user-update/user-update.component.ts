@@ -58,7 +58,7 @@ export class UserUpdateComponent implements IDeactivateComponent {
       this.subs.sink=this.service.updateUser(user).subscribe({
         next:result => {
           console.log(result);
-          this.alert = new alert(AlertType.Success,`The user ${result.name} has been successfully updated on ${result.updatedAt.toString()}`)
+          //this.alert = new alert(AlertType.Success,`The user ${result.name} has been successfully updated on ${result.updatedAt.toString()}`)
           this.router.navigate(['./User']);
         },
         error:err=> {
