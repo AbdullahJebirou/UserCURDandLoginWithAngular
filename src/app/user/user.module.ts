@@ -5,7 +5,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { SharedModule } from '../shared/shared.module';
 import { UserCreateComponent } from './components/user-create/user-create.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
-import { UserEditGuard } from './user-edit.guard';
+import { UserEditGuard } from './guards/user-edit.guard';
 
 @NgModule({
     declarations: [

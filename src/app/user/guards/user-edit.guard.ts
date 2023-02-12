@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { DialogService } from '../services/Dialog.service';
-import { IDeactivateComponent } from './models/IDeactivateComponent';
+import { DialogService } from '../../services/Dialog.service';
+import { IDeactivateComponent } from '../models/IDeactivateComponent';
 
 
 @Injectable({

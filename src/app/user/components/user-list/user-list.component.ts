@@ -3,8 +3,8 @@ import { IUserWithPage } from 'src/app/user/models/IUserWithPage';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import { SubSink } from 'subsink';
-import { alert } from 'src/app/shared/alert/models/alert';
-import { AlertType } from 'src/app/shared/alert/models/AlertType';
+import { alert } from 'src/app/shared/models/alert';
+import { AlertType } from 'src/app/shared/models/AlertType';
 import { IUser } from '../../models/IUser';
 
 @Component({

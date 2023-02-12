@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-import { alert } from 'src/app/shared/alert/models/alert';
-import { AlertType } from 'src/app/shared/alert/models/AlertType';
+import { alert } from 'src/app/shared/models/alert';
+import { AlertType } from 'src/app/shared/models/AlertType';
 import { SubSink } from 'subsink';
 
 @Component({

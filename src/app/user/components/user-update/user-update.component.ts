@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubSink } from 'subsink';
-import { alert } from 'src/app/shared/alert/models/alert';
-import { AlertType } from 'src/app/shared/alert/models/AlertType';
+import { alert } from 'src/app/shared/models/alert';
+import { AlertType } from 'src/app/shared/models/AlertType';
 import { UserService } from 'src/app/services/user.service';
 import { IUserForCreateRequest } from '../../models/IUserForCreateRequest';
 import { ActivatedRoute, Router } from '@angular/router';

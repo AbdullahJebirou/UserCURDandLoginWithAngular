@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
-import { alert } from 'src/app/shared/alert/models/alert';
-import { AlertType } from 'src/app/shared/alert/models/AlertType';
+import { alert } from 'src/app/shared/models/alert';
+import { AlertType } from 'src/app/shared/models/AlertType';
 import { SubSink } from 'subsink';
 import { IDeactivateComponent } from '../../models/IDeactivateComponent';
 import { IUserForCreateRequest } from '../../models/IUserForCreateRequest';

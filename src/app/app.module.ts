@@ -5,7 +5,8 @@ import { RouterModule } from "@angular/router";
 import { AccountModule } from "./account/account.module";
 import { AppComponent } from "./app.component";
 import { SharedModule } from './shared/shared.module';
-import { UserGuard } from "./user/user.guard";
+import { UserGuard } from "./user/guards/user.guard";
+
 
 
 @NgModule({
