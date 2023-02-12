@@ -6,14 +6,16 @@ import { AlertType } from 'src/app/shared/alert/models/AlertType';
 import { UserService } from 'src/app/services/user.service';
 import { IUserForCreateRequest } from '../../models/IUserForCreateRequest';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IDeactivateComponent } from '../../models/IDeactivateComponent';
 
 @Component({
   selector: 'app-user-update',
   templateUrl: './user-update.component.html',
   styleUrls: ['./user-update.component.css']
 })
-export class UserUpdateComponent {
+export class UserUpdateComponent implements IDeactivateComponent {
 
+  isUserEdited = false;
   updateUserForm!:FormGroup;
 
   alert = new alert(AlertType.none,''); //This data object is for alert.component
@@ -63,7 +65,16 @@ export class UserUpdateComponent {
           this.alert = new alert(AlertType.Warning,'an error occurred')
         }
       });
+      this.isUserEdited = true;
     }
+
+    canExit(){
+      if(!this.isUserEdited && this.updateUserForm.dirty){
+        return false;
+      }
+      return true;
+    }
+
 
     ngOnDestroy() {
       this.subs.unsubscribe();

@@ -5,6 +5,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import { SharedModule } from '../shared/shared.module';
 import { UserCreateComponent } from './components/user-create/user-create.component';
 import { UserUpdateComponent } from './components/user-update/user-update.component';
+import { UserEditGuard } from './user-edit.guard';
 
 @NgModule({
     declarations: [
@@ -20,8 +21,8 @@ import { UserUpdateComponent } from './components/user-update/user-update.compon
         RouterModule.forChild([
 
             { path: '', component: UserListComponent },
-            { path: 'Create', component: UserCreateComponent },   
-            { path: 'Update/:id', component: UserUpdateComponent },
+            { path: 'Create',canDeactivate:[UserEditGuard] , component: UserCreateComponent },   
+            { path: 'Update/:id', canDeactivate:[UserEditGuard], component: UserUpdateComponent },
             { path: ':id', component: UserDetailComponent },
         ]),     
     ]

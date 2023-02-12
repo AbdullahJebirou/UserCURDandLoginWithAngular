@@ -1,6 +1,6 @@
 <div class="container pt-2">
     <div class="btn btn-primary btn-create d-flex justify-content-between  align-items-center" [routerLink]="['./Create']">
-        <img class="m-1 link" src="../../../../assets/user-plus-solid.svg">
+        <img class="m-1 link" src="../../../../assets/user-plus-solid.svg" alt="Create">
     </div>
 
     <app-alert [message]="alert.message" [type]="alert.type"></app-alert>
@@ -14,7 +14,7 @@
                 </li>
 
                 <li class="nav-item ps-1">
-                    <a class="btn btn-info"  (click)="onLogout()">Logout</a>
+                    <span class="btn btn-info"(click)="onLogout()">Logout</span>
                 </li>
             </ul>
     </div>

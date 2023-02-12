@@ -1,25 +1,25 @@
 <ul *ngIf="pager.pages.length" class="pagination ">
 
     <li [ngClass]="{disabled:pager.currentPage === pager.initialPage}" class="page-item first-item">
-        <a (click)="setPage(1)" class="page-link">First</a>
+        <span (click)="setPage(1)" class="page-link">First</span>
     </li>
 
     <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
-        <a (click)="setPage(pager.currentPage - 1)" class="page-link">Previous</a>
+        <span (click)="setPage(pager.currentPage - 1)" class="page-link">Previous</span>
     </li>
 
 
     <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item number-item">
-        <a (click)="setPage(page)" class="page-link">{{page}}</a>
+        <span (click)="setPage(page)" class="page-link">{{page}}</span>
     </li>
 
 
 
     <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
-        <a (click)="setPage(pager.currentPage + 1)" class="page-link">Next</a>
+        <span (click)="setPage(pager.currentPage + 1)" class="page-link">Next</span>
     </li>
 
     <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
-        <a (click)="setPage(pager.totalPages)" class="page-link">Last</a>
+        <span (click)="setPage(pager.totalPages)" class="page-link">Last</span>
     </li>
 </ul>`
