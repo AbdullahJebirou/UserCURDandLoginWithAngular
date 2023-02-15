@@ -34,15 +34,15 @@
             >
             </i>
             <span
-              class="isNotValid px-2"
+              class="requirements px-2"
               *ngIf="loginForm.get('email')?.errors?.['required']
-                             && loginForm.get('email')?.touched "
+                             && loginForm.get('email')?.dirty "
               >Email this required</span
             >
             <span
-              class="isNotValid px-2"
+              class="requirements px-2"
               *ngIf="loginForm.get('email')?.errors?.['email']
-                             && loginForm.get('email')?.touched "
+                             && loginForm.get('email')?.dirty "
               >is not Email</span
             >
           </div>
@@ -67,7 +67,7 @@
             <span
               class="requirements px-2"
               *ngIf="loginForm.get('password')?.errors?.['required'] && 
-                            loginForm.get('password')?.touched "
+                            loginForm.get('password')?.dirty "
               >Password this required</span
             >
           </div>

@@ -15,7 +15,6 @@
 
 .isNotValid {
     background-color: #E21212 !important;
-    color: #E21212;
     font-size: 0.7em;
 }
 
@@ -48,8 +47,8 @@ form .form-group i {
     transform: translateY(-24px);
 }
 
-form .form-group input:focus~span,
-form .form-group input:valid~span {
+form .form-group input:focus~.myPlaceholder,
+form .form-group input:valid~.myPlaceholder {
     transform: translateY(-55px);
     color: #0d6efd;
     font-size: 0.8em;
