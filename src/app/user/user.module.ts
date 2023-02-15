@@ -18,6 +18,7 @@ import { UserEditGuard } from './guards/user-edit.guard';
     imports: [
 
         SharedModule,
+
         RouterModule.forChild([
 
             { path: '', component: UserListComponent },

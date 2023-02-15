@@ -6,6 +6,7 @@ import { SubSink } from 'subsink';
 import { alert } from 'src/app/shared/models/alert';
 import { AlertType } from 'src/app/shared/models/AlertType';
 import { IUser } from '../../models/IUser';
+import { faCoffee, faUserAlt, faUserEdit, faUserPen, faUserPlus, faUserXmark } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-list',
@@ -20,6 +21,11 @@ export class UserListComponent implements OnInit , OnDestroy{
   Users!:IUserWithPage;
   UsersFilter!:IUser[];
   listFilter!:string;
+  
+  UserPlus = faUserPlus;
+  UserXmark = faUserXmark;
+  UserPen = faUserPen;
+  
 
   alert = new alert(AlertType.none,''); //This data object is for alert.component
 
@@ -43,6 +49,7 @@ export class UserListComponent implements OnInit , OnDestroy{
 
 
   doFilter(){
+  
    this.UsersFilter=this.Users.data.filter(u=>
      u.first_name.toLocaleLowerCase()
     .includes(this.listFilter.toLocaleLowerCase())
@@ -81,3 +88,4 @@ export class UserListComponent implements OnInit , OnDestroy{
   }
 
 }
+
