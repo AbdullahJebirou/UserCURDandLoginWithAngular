@@ -17,17 +17,20 @@ table {
     border-radius: 50%;
 }
 
-.background-table{
+.background-table {
     background-color: #f8f9fa;
 }
 
-.input-filter{
+.input-filter {
     border: none;
-    outline:none;
+    outline: none;
     border-bottom: 1px #aaa solid;
-    background-color:#f8f9fa ;
+    background-color: #f8f9fa;
     font-size: 22px;
-    width:90%;
+    width: 90%;
     padding: 5px;
 }
 
+fa-icon {
+    font-size: 22px;
+}
