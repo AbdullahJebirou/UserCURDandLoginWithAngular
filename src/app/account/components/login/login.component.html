@@ -1,45 +1,93 @@
 <div class="container vh-100">
+  <app-alert [message]="alert.message" [type]="alert.type"></app-alert>
 
-    <app-alert [message]="alert.message" [type]="alert.type"></app-alert>
+  <div class="row justify-content-center align-items-center h-100">
+    <div class="card login p-0">
+      <div class="card-body">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="text-center my-4">
+            <h2>Welcome</h2>
+          </div>
 
-    <div class="row justify-content-center h-100 mx-5">
-        <div class="card my-auto shadow p-0 mw-50">
+          <p
+            style="color: lightslategray; text-align: center; margin-top: 10px"
+          >
+            Please enter your login details
+          </p>
 
-            <div class="card-body px-5">
+          <div class="form-group mb-3 mt-4">
+            <input
+              required
+              type="text"
+              id="email"
+              class="form-control"
+              formControlName="email"
+            />
+            <span class="myPlaceholder px-2">email</span>
+            <i
+              [ngClass]="{
+                isValid: loginForm.get('email')?.valid,
+                isNotValid:
+                  !loginForm.get('email')?.valid &&
+                  loginForm.get('email')?.touched
+              }"
+            >
+            </i>
+            <span
+              class="isNotValid px-2"
+              *ngIf="loginForm.get('email')?.errors?.['required']
+                             && loginForm.get('email')?.touched "
+              >Email this required</span
+            >
+            <span
+              class="isNotValid px-2"
+              *ngIf="loginForm.get('email')?.errors?.['email']
+                             && loginForm.get('email')?.touched "
+              >is not Email</span
+            >
+          </div>
 
-                <div class="text-center">
-                    <h2>Welcome</h2>
-                </div>
+          <div class="form-group my-4">
+            <input
+              required
+              type="password"
+              class="form-control"
+              formControlName="password"
+            />
+            <span class="myPlaceholder px-2">password</span>
+            <i
+              [ngClass]="{
+                isValid: loginForm.get('password')?.valid,
+                isNotValid:
+                  !loginForm.get('password')?.valid &&
+                  loginForm.get('password')?.touched
+              }"
+            >
+            </i>
+            <span
+              class="requirements px-2"
+              *ngIf="loginForm.get('password')?.errors?.['required'] && 
+                            loginForm.get('password')?.touched "
+              >Password this required</span
+            >
+          </div>
 
-                <p style="color: lightslategray; text-align: center;">
-                    Please enter your login details
-                </p>
+          <input
+            [disabled]="this.loginForm.invalid"
+            type="submit"
+            class="btn btn-primary w-100"
+            value="Login"
+          />
+        </form>
+      </div>
 
-                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group my-4">
-                        <input type="email" id="email" placeholder="Email" class="form-control" formControlName="email" />
-                        <span *ngIf="loginForm.get('email')?.errors?.['required']
-                         && loginForm.get('email')?.touched " class="px-2">Email this required</span>
-                         <span *ngIf="loginForm.get('email')?.errors?.['email']
-                         && loginForm.get('email')?.touched " class="px-2">is not Email</span>
-                    </div>
-
-                    <div class="form-group my-4">
-                        <input type="password" placeholder="Password" class="form-control" formControlName="password" />
-                        <span *ngIf="loginForm.get('password')?.errors?.['required'] && 
-                        loginForm.get('password')?.touched " class="px-2">Password this required</span>
-                    </div>
-
-                    <input [disabled]="this.loginForm.invalid" type="submit" class="btn btn-primary w-100 " value="Login">
-                </form>
-
-            </div>
-
-            <div class="card-footer text-right">
-                <small><a class="link" (click)="ForgotPassword()">Forgot Password</a></small>
-            </div>
-
-        </div>
+      <div class="card-footer text-right">
+        <small
+          ><span class="link m-1" (click)="ForgotPassword()"
+            >Forgot Password</span
+          ></small
+        >
+      </div>
     </div>
-    
+  </div>
 </div>
