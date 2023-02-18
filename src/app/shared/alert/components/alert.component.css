@@ -1,43 +1,42 @@
 /* The alert message box */
 
 .alert {
-    position: fixed;
-    z-index: 99999;
-    top: 30px;
-    right: 20px;
-    width: 400px;
-    max-width: 90%;
-    border-radius: 4px;
-    padding: 16px 17px;
-    margin-bottom: 10px;
-    animation: show 0.3s ease forwards;
+  position: fixed;
+  z-index: 99999;
+  top: 30px;
+  right: 20px;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 4px;
+  padding: 16px 17px;
+  margin-bottom: 10px;
+  animation: show 0.3s ease forwards;
 }
 
 @keyframes show {
-    0% {
-        transform: translateX(100%);
-    }
-    20% {
-        transform: translateX(-15%);
-    }
-    40% {
-        transform: translateX(0%);
-    }
-    50% {
-        transform: translateX(-10px);
-    }
+  0% {
+    transform: translateX(100%);
+  }
+  20% {
+    transform: translateX(-15%);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
 }
-
 
 /* The close button */
 
 .closebtn {
-    margin-left: 15px;
-    color: black;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
+  margin-left: 15px;
+  color: black;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
 }

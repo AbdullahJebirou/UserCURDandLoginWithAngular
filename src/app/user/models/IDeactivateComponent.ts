@@ -1,7 +1,6 @@
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
 export interface IDeactivateComponent {
-    isUserEdited:boolean;
-    canExit: () => Observable<boolean> | Promise<boolean> | boolean;
-  } 
-  
+  isUserEdited: boolean;
+  canExit: () => Observable<boolean> | Promise<boolean> | boolean;
+}

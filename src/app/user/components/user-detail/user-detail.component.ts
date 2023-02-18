@@ -8,37 +8,35 @@ import { SubSink } from 'subsink';
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
-  styleUrls: ['./user-detail.component.css']
+  styleUrls: ['./user-detail.component.css'],
 })
 export class UserDetailComponent {
-
-
-  User!:IUser;
+  User!: IUser;
   private subs = new SubSink();
-  
+
   constructor(
-    private userService:UserService ,
-    private route:ActivatedRoute ){}
- 
-  ngOnInit():void{
-    
-   let id = Number(this.route.snapshot.paramMap.get('id'));
-  
-    if(!isNaN(id)){ //If there is an error in the user number, return false
-      this.subs.sink=this.userService.getUser(id).subscribe({
-        next:User=>{
-          this.User=User
+    private userService: UserService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+    let id = Number(this.route.snapshot.paramMap.get('id'));
+
+    if (!isNaN(id)) {
+      //If there is an error in the user number, return false
+      this.subs.sink = this.userService.getUser(id).subscribe({
+        next: (User) => {
+          this.User = User;
         },
-        error:err=> {
+        error: (err) => {
           //An alert.component can be shown
           console.log(err);
-        }
+        },
       });
-    } 
+    }
   }
-  
+
   ngOnDestroy() {
     this.subs.unsubscribe();
   }
-  
 }

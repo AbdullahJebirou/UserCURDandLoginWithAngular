@@ -1,4 +1,5 @@
-export interface IUserForCreateRequest{
-    name: string,
-    job: string, 
+export interface IUserForCreateRequest {
+  name: string;
+  job: string;
 }
+

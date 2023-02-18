@@ -1,4 +1,4 @@
-export interface IUserForUpdateRequest{
-         name :string ,
-         job :string
+export interface IUserForUpdateRequest {
+  name: string;
+  job: string;
 }

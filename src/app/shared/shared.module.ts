@@ -6,28 +6,18 @@ import { PaginationComponent } from './pagination/components/pagination.componen
 import { AlertComponent } from './alert/components/alert.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
 @NgModule({
-  declarations: [
-    PaginationComponent,
-    AlertComponent, 
-  ],
-  imports: [
+  declarations: [PaginationComponent, AlertComponent],
+  imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+  exports: [
     CommonModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
-  ],
-  exports:[
-    CommonModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    
+
     PaginationComponent,
     AlertComponent,
     FontAwesomeModule,
-  ]
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

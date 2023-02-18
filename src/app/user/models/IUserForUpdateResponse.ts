@@ -1,5 +1,5 @@
-export interface IUserForUpdateResponse{
-     name :string
-     job :string ,
-     updatedAt :string 
+export interface IUserForUpdateResponse {
+  name: string;
+  job: string;
+  updatedAt: string;
 }

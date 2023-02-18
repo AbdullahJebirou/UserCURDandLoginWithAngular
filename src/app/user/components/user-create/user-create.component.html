@@ -1,31 +1,49 @@
 <div class="container vh-100">
-    <div class="row justify-content-center h-100 mx-5">
+  <div class="row justify-content-center h-100 mx-5">
+    <div class="card my-auto shadow p-0 mw-50">
+      <div class="card-body px-5">
+        <app-alert [message]="alert.message" [type]="alert.type"></app-alert>
 
-        <div class="card my-auto shadow p-0 mw-50">
-            <div class="card-body px-5">
+        <p style="color: lightslategray; text-align: center">
+          Please enter your User details
+        </p>
 
-                <app-alert [message]="alert.message" [type]="alert.type"></app-alert>
+        <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+          <div class="form-group my-4">
+            <input
+              placeholder="Name"
+              class="form-control"
+              formControlName="name"
+            />
+            <span
+              *ngIf="createUserForm.get('name')?.errors?.['required'] && createUserForm.get('name')?.touched "
+              class="px-2"
+              >Name this required</span
+            >
+          </div>
 
-                <p style="color: lightslategray; text-align: center;">
-                    Please enter your User details
-                </p>
+          <div class="form-group my-4">
+            <input
+              placeholder="Job"
+              class="form-control"
+              formControlName="job"
+            />
+            <span
+              *ngIf="createUserForm.get('job')?.errors?.['required'] && createUserForm.get('job')?.touched "
+              class="px-2"
+              >Job this required</span
+            >
+          </div>
 
-                <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
-                    <div class="form-group my-4">
-                        <input placeholder="Name" class="form-control" formControlName="name" />
-                        <span *ngIf="createUserForm.get('name')?.errors?.['required'] && createUserForm.get('name')?.touched " class="px-2">Name this required</span>
-                    </div>
-
-                    <div class="form-group my-4">
-                        <input placeholder="Job" class="form-control" formControlName="job" />
-                        <span *ngIf="createUserForm.get('job')?.errors?.['required'] && createUserForm.get('job')?.touched " class="px-2">Job this required</span>
-                    </div>
-
-                    <input [disabled]="this.createUserForm.invalid" type="submit" class="btn btn-primary w-100 " value="Add " name=" ">
-
-                </form>
-
-            </div>
-        </div>
+          <input
+            [disabled]="this.createUserForm.invalid"
+            type="submit"
+            class="btn btn-primary w-100"
+            value="Add "
+            name=" "
+          />
+        </form>
+      </div>
     </div>
+  </div>
 </div>
