@@ -40,7 +40,7 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   private subs = new SubSink();
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.subs.sink = this.userService.getUsers().subscribe({
@@ -77,8 +77,7 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.subs.sink = this.userService.deleteUser(userId).subscribe({
       next: (result) => {
         this.UsersFilter.splice(
-          this.UsersFilter.findIndex((u) => u.id == userId)
-        );
+          this.UsersFilter.findIndex((u) => u.id == userId), 1);
         this.alert = new alert(
           AlertType.Success,
           `The user has been deleted successfully`
