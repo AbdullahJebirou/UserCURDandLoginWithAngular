@@ -17,8 +17,10 @@ export class UserUpdateComponent implements IDeactivateComponent {
 
   isUserEdited = false;
   updateUserForm!:FormGroup;
+  id = Number(this.route.snapshot.paramMap.get('id'));
 
   alert = new alert(AlertType.none,''); //This data object is for alert.component
+
 
   private subs = new SubSink();
 
@@ -29,9 +31,7 @@ export class UserUpdateComponent implements IDeactivateComponent {
 
   ngOnInit(): void {
 
-    let id = Number(this.route.snapshot.paramMap.get('id'));
-
-    this.subs.sink=this.service.getUser(id).subscribe({
+    this.subs.sink=this.service.getUser(this.id).subscribe({
        next:date=>{
          this.updateUserForm.setValue({
           name:date.first_name,
@@ -55,7 +55,7 @@ export class UserUpdateComponent implements IDeactivateComponent {
      //This function only works when the from is valid  
 
       let user:IUserForCreateRequest =this.updateUserForm.value;
-      this.subs.sink=this.service.updateUser(user).subscribe({
+      this.subs.sink=this.service.updateUser(user,this.id).subscribe({
         next:result => {
           console.log(result);
           //this.alert = new alert(AlertType.Success,`The user ${result.name} has been successfully updated on ${result.updatedAt.toString()}`)

@@ -7,6 +7,7 @@ import { IUser } from '../user/models/IUser';
 import { IUserForCreateRequest } from '../user/models/IUserForCreateRequest';
 import { IUserForCreateResponse } from '../user/models/IUserForCreateResponse';
 import { IUserForUpdateRequest } from '../user/models/IUserForUpdateRequest';
+import { IUserForUpdateResponse } from '../user/models/IUserForUpdateResponse';
 import { IUserWithPage } from '../user/models/IUserWithPage';
 import { IUserWithSupport } from '../user/models/IUserWithSupport';
 
@@ -16,7 +17,7 @@ import { IUserWithSupport } from '../user/models/IUserWithSupport';
 
 export class UserService {
 
-  private usersUrl :string =`https://reqres.in/api/users?page=`;
+  private usersUrl :string =`https://reqres.in/api/users`;
   private userUrl :string =`https://reqres.in/api/users/`;
   private LoginUrl :string =`https://reqres.in/api/login`;
 
@@ -50,7 +51,7 @@ export class UserService {
  
 
   getUsers(page:number=1):Observable<IUserWithPage>{
-    return this.http.get<IUserWithPage>(this.usersUrl+page).pipe(
+    return this.http.get<IUserWithPage>(this.usersUrl+'?page='+page).pipe(
         tap(data => console.log(JSON.stringify(data))),
         catchError(this.handleError))
   };
@@ -64,14 +65,15 @@ export class UserService {
   };
   
 
-  deleteUser(userId:Number):Observable<any>{
-    return this.http.delete(this.usersUrl+userId).pipe(
+  deleteUser(userId:Number):Observable<any>{   
+    return this.http.delete(this.usersUrl+'/'+userId).pipe(
     catchError(this.handleError)) 
   }
 
 
-  updateUser(user:IUserForUpdateRequest):Observable<any>{
-    return this.http.put(this.userUrl,user).pipe(
+  updateUser(user:IUserForUpdateRequest , userId:Number):Observable<IUserForUpdateResponse>{
+    console.log(userId); 
+    return this.http.put<IUserForUpdateResponse>(this.usersUrl+'/'+userId,user).pipe(
       tap(data => console.log(JSON.stringify(data))),
       catchError(this.handleError)) 
   }
