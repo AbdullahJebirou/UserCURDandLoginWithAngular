@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { AccountModule } from './account/account.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthGuard } from './user/guards/auth.guard';
-import { UserGuard } from './user/guards/user.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,4 +30,4 @@ import { UserGuard } from './user/guards/user.guard';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

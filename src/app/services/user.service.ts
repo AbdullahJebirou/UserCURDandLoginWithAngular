@@ -9,6 +9,7 @@ import { IUserForCreateResponse } from '../user/models/IUserForCreateResponse';
 import { IUserForUpdateRequest } from '../user/models/IUserForUpdateRequest';
 import { IUserForUpdateResponse } from '../user/models/IUserForUpdateResponse';
 import { IUserWithPage } from '../user/models/IUserWithPage';
+import { IUserWithSupport } from '../user/models/IUserWithSupport';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class UserService {
   private userUrl: string = `https://reqres.in/api/users/`;
   private LoginUrl: string = `https://reqres.in/api/login`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   setToken(token: string): void {
     localStorage.setItem('token', token);
@@ -53,7 +54,8 @@ export class UserService {
   }
 
   getUser(userId: Number): Observable<IUser> {
-    return this.http.get<IUser>(this.userUrl + userId).pipe(
+    return this.http.get<IUserWithSupport>(this.userUrl + userId).pipe(
+      map(u => u.data),
       tap((data) => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );

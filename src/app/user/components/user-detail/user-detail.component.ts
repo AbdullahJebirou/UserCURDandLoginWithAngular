@@ -17,7 +17,7 @@ export class UserDetailComponent {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     let id = Number(this.route.snapshot.paramMap.get('id'));
