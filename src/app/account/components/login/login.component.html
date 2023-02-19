@@ -9,84 +9,46 @@
             <h2>Welcome</h2>
           </div>
 
-          <p
-            style="color: lightslategray; text-align: center; margin-top: 10px"
-          >
+          <p style="color: lightslategray; text-align: center; margin-top: 10px">
             Please enter your login details
           </p>
 
           <div class="form-group mb-3 mt-4">
-            <input
-              required
-              type="text"
-              id="email"
-              class="form-control"
-              formControlName="email"
-            />
+            <input required type="text" id="email" class="form-control" formControlName="email" />
             <span class="myPlaceholder px-2">email</span>
-            <i
-              [ngClass]="{
+            <i [ngClass]="{
                 isValid: loginForm.get('email')?.valid,
                 isNotValid:
                   !loginForm.get('email')?.valid &&
                   loginForm.get('email')?.touched
-              }"
-            >
+              }">
             </i>
-            <span
-              class="requirements px-2"
-              *ngIf="loginForm.get('email')?.errors?.['required']
-                             && loginForm.get('email')?.dirty "
-              >Email this required</span
-            >
-            <span
-              class="requirements px-2"
-              *ngIf="loginForm.get('email')?.errors?.['email']
-                             && loginForm.get('email')?.dirty "
-              >is not Email</span
-            >
+            <span class="requirements px-2" *ngIf="loginForm.get('email')?.errors?.['required']
+                             && loginForm.get('email')?.dirty ">Email this required</span>
+            <span class="requirements px-2" *ngIf="loginForm.get('email')?.errors?.['email']
+                             && loginForm.get('email')?.dirty ">is not Email</span>
           </div>
 
           <div class="form-group my-4">
-            <input
-              required
-              type="password"
-              class="form-control"
-              formControlName="password"
-            />
+            <input required type="password" class="form-control" formControlName="password" />
             <span class="myPlaceholder px-2">password</span>
-            <i
-              [ngClass]="{
+            <i [ngClass]="{
                 isValid: loginForm.get('password')?.valid,
                 isNotValid:
                   !loginForm.get('password')?.valid &&
                   loginForm.get('password')?.touched
-              }"
-            >
+              }">
             </i>
-            <span
-              class="requirements px-2"
-              *ngIf="loginForm.get('password')?.errors?.['required'] && 
-                            loginForm.get('password')?.dirty "
-              >Password this required</span
-            >
+            <span class="requirements px-2" *ngIf="loginForm.get('password')?.errors?.['required'] && 
+                            loginForm.get('password')?.dirty ">Password this required</span>
           </div>
 
-          <input
-            [disabled]="this.loginForm.invalid"
-            type="submit"
-            class="btn btn-primary w-100"
-            value="Login"
-          />
+          <input [disabled]="this.loginForm.invalid" type="submit" class="btn btn-primary w-100" value="Login" />
         </form>
       </div>
 
       <div class="card-footer text-right">
-        <small
-          ><span class="link m-1" (click)="ForgotPassword()"
-            >Forgot Password</span
-          ></small
-        >
+        <small><span class="link m-1" (click)="ForgotPassword()">Forgot Password</span></small>
       </div>
     </div>
   </div>

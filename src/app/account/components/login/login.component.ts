@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['./User']);
       },
       error: (err) => {
-        this.alert = new alert(AlertType.Warning, err);
+        this.alert = new alert(AlertType.Warning, 'Unable to sign in to your account');
         this.loginForm.setValue({
           email: '',
           password: '',

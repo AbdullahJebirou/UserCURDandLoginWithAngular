@@ -9,6 +9,6 @@ export class alert {
   constructor(type: AlertType, public message: string) {
     this.type = 'none';
     setTimeout(() => (this.type = type.toString()), 1);
-    setTimeout(() => (this.type = 'none'), 1500);
+    setTimeout(() => (this.type = 'none'), 3000);
   }
 }

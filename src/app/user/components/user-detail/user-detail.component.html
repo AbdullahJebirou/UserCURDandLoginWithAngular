@@ -1,14 +1,10 @@
 <div class="container d-flex justify-content-center align-items-center my-5">
-  <div class="card mb-3" style="max-width: 540px" *ngIf="User">
+  <div class="card my-5" *ngIf="User">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img
-          [src]="User.avatar"
-          class="img-fluid h-100"
-          alt="{{ User.first_name }}"
-        />
+      <div class="col-4 col-sm-12">
+        <img [src]="User.avatar" class="img-fluid  h-100 w-100" alt="{{ User.first_name }}" />
       </div>
-      <div class="col-md-8">
+      <div class="col-8 col-sm-12">
         <div class="card-body">
           <p class="my-1">
             <a href="mailto:{{ User.email }}"> Email : {{ User.email }}</a>
