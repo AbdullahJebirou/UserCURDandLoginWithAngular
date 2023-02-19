@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { AuthGuard } from './user/guards/auth.guard';
@@ -10,7 +11,7 @@ import { AuthGuard } from './user/guards/auth.guard';
   imports: [
     BrowserModule,
     SharedModule,
-
+    TranslateModule.forRoot(),
     RouterModule.forRoot([
       {
         path: 'User',
