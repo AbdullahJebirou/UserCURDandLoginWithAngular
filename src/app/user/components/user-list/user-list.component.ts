@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, OnDestroy, OnInit, } from '@angular/core';
 import { IUserWithPage } from 'src/app/user/models/IUserWithPage';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
@@ -13,24 +7,28 @@ import { alert } from 'src/app/shared/models/alert';
 import { AlertType } from 'src/app/shared/models/AlertType';
 import { IUser } from '../../models/IUser';
 import {
-  faCoffee,
-  faUserAlt,
-  faUserEdit,
   faUserPen,
   faUserPlus,
   faUserXmark,
 } from '@fortawesome/free-solid-svg-icons';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
+
 export class UserListComponent implements OnInit, OnDestroy {
   title = 'User';
   Users!: IUserWithPage;
   UsersFilter!: IUser[];
   listFilter!: string;
+
+  LangArray = [{ name: "English", value: "en" },
+  { name: "Arabic", value: "ar" }]
+  Lang: string = "English";
+
 
   UserPlus = faUserPlus;
   UserXmark = faUserXmark;
@@ -40,7 +38,7 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   private subs = new SubSink();
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private translateService: TranslateService) { }
 
   ngOnInit(): void {
     this.subs.sink = this.userService.getUsers().subscribe({
@@ -66,6 +64,10 @@ export class UserListComponent implements OnInit, OnDestroy {
           .toLocaleLowerCase()
           .includes(this.listFilter.toLocaleLowerCase())
     );
+  }
+
+  changeLang() {
+    this.translateService.use(this.LangArray.find(n => n.name == this.Lang)?.value!);
   }
 
   onLogout() {
