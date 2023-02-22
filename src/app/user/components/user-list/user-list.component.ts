@@ -11,7 +11,6 @@ import {
   faUserPlus,
   faUserXmark,
 } from '@fortawesome/free-solid-svg-icons';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-list',
@@ -25,11 +24,6 @@ export class UserListComponent implements OnInit, OnDestroy {
   UsersFilter!: IUser[];
   listFilter!: string;
 
-  LangArray = [{ name: "English", value: "en" },
-  { name: "Arabic", value: "ar" }]
-  Lang: string = "English";
-
-
   UserPlus = faUserPlus;
   UserXmark = faUserXmark;
   UserPen = faUserPen;
@@ -38,7 +32,7 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   private subs = new SubSink();
 
-  constructor(private userService: UserService, private router: Router, private translateService: TranslateService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.subs.sink = this.userService.getUsers().subscribe({
@@ -66,9 +60,7 @@ export class UserListComponent implements OnInit, OnDestroy {
     );
   }
 
-  changeLang() {
-    this.translateService.use(this.LangArray.find(n => n.name == this.Lang)?.value!);
-  }
+
 
   onLogout() {
     this.userService.removeToken();

@@ -10,9 +10,7 @@
       <h3>{{ 'Userslist'| translate }}</h3>
       <ul class="navbar-nav d-flex justify-content-between flex-row">
         <li class="nav-item mx-2">
-          <select (click)="changeLang()" [(ngModel)]="Lang" class="form-select">
-            <option *ngFor="let l of LangArray">{{l.name}}</option>
-          </select>
+         <app-select-language></app-select-language>
         </li>
         <li class="nav-item">
           <a class="btn btn-secondary" [routerLink]="['./Create']">Create</a>

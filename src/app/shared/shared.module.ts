@@ -6,9 +6,10 @@ import { PaginationComponent } from './pagination/components/pagination.componen
 import { AlertComponent } from './alert/components/alert.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
+import { SelectLanguageComponent } from './select-language/select-language.component';
 
 @NgModule({
-  declarations: [PaginationComponent, AlertComponent],
+  declarations: [PaginationComponent, AlertComponent, SelectLanguageComponent],
   imports: [CommonModule, FormsModule, HttpClientModule, ReactiveFormsModule],
   exports: [
     CommonModule,
@@ -18,6 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
     TranslateModule,
     PaginationComponent,
     AlertComponent,
+    SelectLanguageComponent,
     FontAwesomeModule,
   ],
 })

@@ -1,0 +1,3 @@
+<select (click)="changeLang()" [(ngModel)]="Lang" class="form-select">
+    <option *ngFor="let l of LangArray">{{l.name}}</option>
+</select>
