@@ -8,12 +8,20 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class SelectLanguageComponent {
   constructor(private translateService: TranslateService) { }
-  
+
   LangArray = [{ name: "English", value: "en" },
   { name: "Arabic", value: "ar" }]
-  Lang: string = "English";
 
+  defaultLanguage(): string {
+    let storageLanguage = localStorage.getItem('Language')?.toString();
+    if (typeof storageLanguage !== 'undefined' ) {
+      return storageLanguage;
+    }
+    return 'English';
+  }
+  currentLanguage:string=this.defaultLanguage();
   changeLang() {
-    this.translateService.use(this.LangArray.find(n => n.name == this.Lang)?.value!);
+    localStorage.setItem('Language', this.currentLanguage);
+    this.translateService.use(this.LangArray.find(n => n.name == this.currentLanguage)?.value!);
   }
 }

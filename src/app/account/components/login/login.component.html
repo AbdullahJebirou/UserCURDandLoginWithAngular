@@ -42,14 +42,16 @@
             <span class="requirements px-2" *ngIf="loginForm.get('password')?.errors?.['required'] && 
                             loginForm.get('password')?.dirty ">Password this required</span>
           </div>
-
+          
           <input [disabled]="this.loginForm.invalid" type="submit" class="btn btn-primary w-100" value="Login" />
+          <input type="button" class="btn btn-primary w-100 my-3" value=" Log in with Google" (click)="GoogleAuth()" />
         </form>
       </div>
 
       <div class="card-footer text-right">
         <small><span class="link m-1" (click)="ForgotPassword()">Forgot Password</span></small>
       </div>
+
     </div>
   </div>
 </div>

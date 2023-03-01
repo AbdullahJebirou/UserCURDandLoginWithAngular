@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "userapp-e5509": {
+      "hosting": {
+        "User": [
+          "userapp-e5509"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "userapp-e5509"
+  }
+}

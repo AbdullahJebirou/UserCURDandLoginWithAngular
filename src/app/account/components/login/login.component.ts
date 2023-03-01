@@ -30,13 +30,17 @@ export class LoginComponent implements OnInit {
     private service: UserService,
     private router: Router,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
     });
+  }
+
+  GoogleAuth():void{
+    this.service.GoogleAuth();
   }
 
   onSubmit(): void {

@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
-
+import { Router } from '@angular/router';
 import { ILoginInfo } from '../account/models/ILoginInfo';
 import { IUser } from '../user/models/IUser';
 import { IUserForCreateRequest } from '../user/models/IUserForCreateRequest';
@@ -10,6 +10,9 @@ import { IUserForUpdateRequest } from '../user/models/IUserForUpdateRequest';
 import { IUserForUpdateResponse } from '../user/models/IUserForUpdateResponse';
 import { IUserWithPage } from '../user/models/IUserWithPage';
 import { IUserWithSupport } from '../user/models/IUserWithSupport';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
+import firebase from 'firebase/compat';
 
 @Injectable({
   providedIn: 'root',
@@ -19,10 +22,29 @@ export class UserService {
   private userUrl: string = `https://reqres.in/api/users/`;
   private LoginUrl: string = `https://reqres.in/api/login`;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private fireAuth: AngularFireAuth
+  ) {
+    this.fireAuth.idToken.subscribe((token) => {
+      this.setToken(token);
+    });
+  }
 
-  setToken(token: string): void {
-    localStorage.setItem('token', token);
+  GoogleAuth() {
+    return this.authLogin(new GoogleAuthProvider());
+  }
+
+  authLogin(provider: firebase.auth.AuthProvider | GoogleAuthProvider) {
+    return this.fireAuth
+      .signInWithPopup(provider)
+      .then((result) => { this.router.navigate(['User']) })
+      .catch((error) => { console.log(error); });
+  }
+
+  setToken(token: string | null): void {
+    localStorage.setItem('token', token != null ? token : '');
   }
 
   getToken() {
@@ -31,6 +53,19 @@ export class UserService {
 
   removeToken() {
     localStorage.removeItem('token');
+  }
+
+  sigIn(email: string, password: string) {
+    this.fireAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.setToken('1');
+        console.log(result);
+        this.router.navigate(['User']);
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
   }
 
   login(loginInfo: ILoginInfo): Observable<any> {
@@ -55,7 +90,7 @@ export class UserService {
 
   getUser(userId: Number): Observable<IUser> {
     return this.http.get<IUserWithSupport>(this.userUrl + userId).pipe(
-      map(u => u.data),
+      map((u) => u.data),
       tap((data) => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     );
