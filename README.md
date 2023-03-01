@@ -28,12 +28,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
-![list-en](https://user-images.githubusercontent.com/123125922/222253835-b6f1a1fe-bfc0-403f-a211-c6efff7af853.jpg)
 
-![list-ar](https://user-images.githubusercontent.com/123125922/222253843-77843e82-76a3-44d8-8412-b4ec4cf587e0.jpg)
-![login](https://user-images.githubusercontent.com/1![delete](https://user-images.githubusercontent.com/123125922/222253887-e481deb4-2062-44bd-a621-b003ddfbbfe7.jpg)![user-1](https://user-images.githubusercontent.com/123125922/222253935-e9f28234-0a7b-4814-bc0c-d5c826c6a0ba.jpg)
-
-23125922/222253868-5e74b519-95c7-4bc7-a414-4b2d879201fa.jpg)![update2]![add](https://user-images.githubusercontent.com/123125922/222253913-cfc223cb-e1e3-46fb-b142-5ffd3c75d2b8.jpg)
-(https://user-images.githubusercontent.com/123125922/222253902-f83f5f13-2864-42a5-998d-0109c08b0287.jpg)
-
+## Image
+![login](https://user-images.githubusercontent.com/123125922/222254408-15b5fc63-7f88-4a83-9605-55c74da834b5.jpg)
+![add](https://user-images.githubusercontent.com/123125922/222254416-62706015-b190-410e-9b4a-e68a81f7d923.jpg)
+![user-1](https://user-images.githubusercontent.com/123125922/222254426-f2bedc31-c6ce-44e7-a236-1dcfbd34ba1e.jpg)
+![update2](https://user-images.githubusercontent.com/123125922/222254436-0772db2e-bd38-4a45-bf39-0779223fca2e.jpg)
+![delete](https://user-images.githubusercontent.com/123125922/222254440-d8fa2c10-a2ab-4a66-94ec-133acc3ace9a.jpg)
+![list-ar](https://user-images.githubusercontent.com/123125922/222254442-7d217323-319b-4005-ada0-4a39798cdce9.jpg)
+![list-en](https://user-images.githubusercontent.com/123125922/222254452-c5793e15-cc86-4c69-83b8-a4ae529d787d.jpg)
 
