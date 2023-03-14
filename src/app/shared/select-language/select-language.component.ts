@@ -7,7 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./select-language.component.css']
 })
 export class SelectLanguageComponent {
-  constructor(private translateService: TranslateService) { }
+   constructor(private translateService: TranslateService) {
+    this.changeLang();
+  }
 
   LangArray = [{ name: "English", value: "en" },
   { name: "Arabic", value: "ar" }]
