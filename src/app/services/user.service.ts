@@ -25,14 +25,12 @@ export class UserService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private fireAuth: AngularFireAuth
-  ) {
+    private fireAuth: AngularFireAuth) { }
+
+  GoogleAuth() {
     this.fireAuth.idToken.subscribe((token) => {
       this.setToken(token);
     });
-  }
-
-  GoogleAuth() {
     return this.authLogin(new GoogleAuthProvider());
   }
 
